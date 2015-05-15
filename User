@@ -1,0 +1,123 @@
+package com.beans.user;
+
+public class DocsUsers {
+	
+private int userId;
+private String  firstName;
+private String lastName;
+private String emailId;
+private String userDesignation;
+private int organizationId;
+private String userAccess;
+private String rememberMe;
+private int active;
+private Date  created_on;
+private String created_by;
+private Date updated_on;
+private String updated_by;
+
+public int getUser_id() {
+	return user_id;
+}
+
+public void setUser_id(int user_id) {
+	this.user_id = user_id;
+}
+
+public String getFirst_name() {
+	return first_name;
+}
+
+public void setFirst_name(String first_name) {
+	this.first_name = first_name;
+}
+
+public String getLast_name() {
+	return last_name;
+}
+
+public void setLast_name(String last_name) {
+	this.last_name = last_name;
+}
+
+public String getEmail_id() {
+	return email_id;
+}
+
+public void setEmail_id(String email_id) {
+	this.email_id = email_id;
+}
+
+public String getUser_designation() {
+	return user_designation;
+}
+
+public void setUser_designation(String user_designation) {
+	this.user_designation = user_designation;
+}
+
+public int getOrganization_id() {
+	return organization_id;
+}
+
+public void setOrganization_id(int organization_id) {
+	this.organization_id = organization_id;
+}
+
+public String getUser_access() {
+	return user_access;
+}
+
+public void setUser_access(String user_access) {
+	this.user_access = user_access;
+}
+
+public String getRemember_me() {
+	return remember_me;
+}
+
+public void setRemember_me(String remember_me) {
+	this.remember_me = remember_me;
+}
+
+public int getActive() {
+	return active;
+}
+
+public void setActive(int active) {
+	this.active = active;
+}
+
+public Date getCreated_on() {
+	return created_on;
+}
+
+public void setCreated_on(Date created_on) {
+	this.created_on = created_on;
+}
+
+public String getCreated_by() {
+	return created_by;
+}
+
+public void setCreated_by(String created_by) {
+	this.created_by = created_by;
+}
+
+public Date getUpdated_on() {
+	return updated_on;
+}
+
+public void setUpdated_on(Date updated_on) {
+	this.updated_on = updated_on;
+}
+
+public String getUpdated_by() {
+	return updated_by;
+}
+
+public void setUpdated_by(String updated_by) {
+	this.updated_by = updated_by;
+}
+
+}
