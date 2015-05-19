@@ -1,0 +1,161 @@
+--docs_oraganization_details
+create table IF NOT EXISTS docs_organization_details
+( organization_id int not null auto_increment,
+organization_name varchar(500),
+contract char(1) ,
+contract_term_in_days int UNSIGNED ,
+contract_expire_date date ,
+active tinyint unsigned default 1,
+created_on date ,
+created_by varchar(500) ,
+updated_on date ,
+updated_by varchar(500) ,
+primary key(organization_id));
+
+--docs_user_details
+
+create table if not exists docs_user_details
+(
+user_id int unsigned auto_increment,
+first_name varchar(250),
+last_name varchar(250),
+email_id varchar(250),
+user_password varchar2,
+user_designation varchar(250),
+organization_id int unsigned,
+user_access char(2),
+remember_me char(1),
+active tinyint unsigned default 1,
+created_on date ,
+created_by varchar(500) ,
+updated_on date ,
+updated_by varchar(500) ,
+primary key(user_id));
+
+--docs_role_master
+create table if not exists docs_role_master
+( role_id smallint unsigned auto_increment,
+role_name varchar(250),
+organization_id int unsigned,
+active tinyint unsigned default 1,
+created_on date ,
+created_by varchar(500) ,
+updated_on date ,
+updated_by varchar(500) ,
+primary key(role_id));
+
+--docs_access_controller
+create table if not exists docs_access_controller
+( object_id int unsigned auto_increment,
+user_id int unsigned,
+role_id smallint unsigned ,
+access_granted char(1) default 'N',
+active tinyint unsigned default 1,
+created_on date ,
+created_by varchar(500) ,
+updated_on date ,
+updated_by varchar(500) ,
+primary key(object_id));
+
+--docs_master_file_data
+create table if not exists docs_master_file_data
+( file_id int unsigned auto_increment,
+file_name varchar(500),
+file_location varchar(1000),
+file_description varchar(4000),
+file_size_mb smallint unsigned,
+type_of_file varchar(250),
+tags_for_file varchar(4000),
+scope_name varchar(500),
+release_name varchar(500),
+source_browser varchar(500),
+organization_id int unsigned,
+last_modified_by varchar(500),
+active tinyint unsigned default 1,
+created_on date ,
+created_by varchar(500) ,
+updated_on date ,
+updated_by varchar(500) ,
+primary key(file_id));
+
+--docs_user_file_mapping
+create table if not exists docs_user_file_mapping
+( object_id int unsigned auto_increment,
+user_id int unsigned,
+file_id int unsigned,
+is_modified char(1) ,
+is_downloaded char(1),
+is_locked char(1),
+is_question_raised char(1),
+last_modified_by varchar(500),
+active tinyint unsigned default 1,
+created_on date ,
+created_by varchar(500) ,
+updated_on date ,
+updated_by varchar(500) ,
+primary key(object_id));
+
+-- docs_file_sharing
+
+create table if not exists docs_file_sharing
+( object_id int unsigned auto_increment,
+file_id int unsigned,
+role_id smallint unsigned ,
+user_id int unsigned,
+is_shared char(1) default 'N',
+active tinyint unsigned default 1,
+created_on date ,
+created_by varchar(500) ,
+updated_on date ,
+updated_by varchar(500) ,
+primary key(object_id));
+
+--docs_user_file_inquiry
+
+create table if not exists docs_user_file_inquiry
+( object_id int unsigned auto_increment,
+user_id int unsigned,
+file_id int unsigned,
+question varchar(4000) ,
+answer varchar(4000),
+answered_by varchar(500),
+active tinyint unsigned default 1,
+created_on date ,
+created_by varchar(500) ,
+updated_on date ,
+updated_by varchar(500) ,
+primary key(object_id));
+
+--docs_file_reviewer
+
+create table if not exists docs_file_reviewer
+( object_id int unsigned auto_increment,
+file_id int unsigned,
+role_id smallint unsigned,
+user_id int unsigned,
+sequence smallint unsigned,
+priority smallint unsigned,
+answered_by varchar(500),
+approver_length_days smallint,
+active tinyint unsigned default 1,
+created_on date ,
+created_by varchar(500) ,
+updated_on date ,
+updated_by varchar(500) ,
+primary key(object_id));
+
+-- docs_file_approval_route
+
+create table if not exists docs_file_approval_route
+( object_id int unsigned auto_increment,
+file_id int unsigned,
+user_id int unsigned,
+decision varchar(50),
+comments varchar(4000),
+sequence smallint unsigned,
+active tinyint unsigned default 1,
+created_on date ,
+created_by varchar(500) ,
+updated_on date ,
+updated_by varchar(500) ,
+primary key(object_id));
